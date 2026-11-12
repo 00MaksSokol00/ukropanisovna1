@@ -15,8 +15,8 @@
   <script type="text/babel">
     const { useState } = React;
 
-    // Вставьте сюда URL вашего веб-приложения Google Apps Script (заканчивается на /exec)
-    const GOOGLE_SCRIPT_URL = '';
+    // URL веб-приложения Google Apps Script для отправки заказов в таблицу и Telegram
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBkLUhkL8ddQwS9Jj3h0Ms240oawX2R5jEYXqh2jUOCbM65APvB4xoCK_ZaCOMsiWIsg/exec';
 
     const PRODUCTS = [
       {
@@ -300,17 +300,6 @@
           comment: orderComment,
           total: `${hasFromPrice ? 'от ' : ''}${totalPrice}`
         };
-
-        if (!GOOGLE_SCRIPT_URL) {
-          setTimeout(() => {
-            setIsSubmitting(false);
-            setOrderStatus({
-              type: 'demo',
-              message: 'Тестовый режим: вставьте ссылку Google Apps Script в GOOGLE_SCRIPT_URL, чтобы заявки уходили в таблицу и Telegram.'
-            });
-          }, 600);
-          return;
-        }
 
         try {
           await fetch(GOOGLE_SCRIPT_URL, {
@@ -634,7 +623,6 @@
                   {orderStatus && (
                     <div className={`p-3.5 rounded-xl text-xs ${
                       orderStatus.type === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
-                      orderStatus.type === 'demo' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
                       'bg-rose-50 text-rose-800 border border-rose-200'
                     }`}>
                       {orderStatus.message}
