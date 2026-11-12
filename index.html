@@ -17,6 +17,20 @@
   <meta property="og:description" content="Авторские детские сказки, наборы открыток, раскраски и планеры на татарском языке. Заказывайте готовые варианты или индивидуальный дизайн." />
   <meta property="og:image" content="https://ukropanisovna1.ru/images/logo.jpg" />
 
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114218301', 'ym');
+
+      ym(114218301, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/114218301" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -30,6 +44,13 @@
 
     // URL веб-приложения Google Apps Script для отправки заказов в таблицу и Telegram
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBkLUhkL8ddQwS9Jj3h0Ms240oawX2R5jEYXqh2jUOCbM65APvB4xoCK_ZaCOMsiWIsg/exec';
+    const YM_COUNTER_ID = 114218301;
+
+    const trackGoal = (goalName) => {
+      if (typeof window.ym === 'function') {
+        window.ym(YM_COUNTER_ID, 'reachGoal', goalName);
+      }
+    };
 
     const CONTACT_EMAIL = 'tansilu-2010@inbox.ru';
     const SITE_DOMAIN = 'ukropanisovna1.ru';
@@ -340,6 +361,8 @@
         const note = customNotes[product.id] || '';
         const cartKey = `${product.id}-${variantLabel}-${note}`;
 
+        trackGoal('add_to_cart');
+
         setCart(prev => {
           const existing = prev.find(item => item.cartKey === cartKey);
           if (existing) {
@@ -411,6 +434,8 @@
             body: JSON.stringify(payload)
           });
 
+          trackGoal('order_submit');
+
           setOrderStatus({
             type: 'success',
             message: 'Заказ успешно отправлен! Мы скоро свяжемся с вами для подтверждения.'
@@ -454,7 +479,10 @@
               </div>
 
               <button
-                onClick={() => setIsCartOpen(true)}
+                onClick={() => {
+                  setIsCartOpen(true);
+                  trackGoal('open_cart');
+                }}
                 className="relative flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition shadow-sm"
               >
                 <span>🛍️ Корзина</span>
