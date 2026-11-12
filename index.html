@@ -18,6 +18,9 @@
     // URL веб-приложения Google Apps Script для отправки заказов в таблицу и Telegram
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBkLUhkL8ddQwS9Jj3h0Ms240oawX2R5jEYXqh2jUOCbM65APvB4xoCK_ZaCOMsiWIsg/exec';
 
+    const CONTACT_EMAIL = 'tansilu-2010@inbox.ru';
+    const SITE_DOMAIN = 'ukropanisovna1.ru';
+
     const PRODUCTS = [
       {
         id: 1,
@@ -198,6 +201,91 @@
       );
     };
 
+    const LegalModal = ({ docType, onClose }) => {
+      if (!docType) return null;
+
+      return (
+        <div 
+          onClick={onClose}
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4"
+        >
+          <div 
+            onClick={e => e.stopPropagation()}
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden"
+          >
+            <div className="p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+              <h3 className="font-bold text-base md:text-lg text-stone-900">
+                {docType === 'privacy' 
+                  ? 'Политика в отношении обработки персональных данных' 
+                  : 'Пользовательское соглашение'}
+              </h3>
+              <button
+                onClick={onClose}
+                className="p-1.5 text-stone-400 hover:text-stone-800 rounded-lg font-bold text-lg"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="p-5 md:p-6 overflow-y-auto text-xs md:text-sm text-stone-600 space-y-4 leading-relaxed">
+              {docType === 'privacy' ? (
+                <>
+                  <p>
+                    <strong>1. Общие положения</strong><br />
+                    Настоящая Политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок обработки и меры по обеспечению безопасности персональных данных, предпринимаемые плательщиком налога на профессиональный доход (самозанятым) — администрацией сайта <strong>{SITE_DOMAIN}</strong> (проект «Татарские подарки», далее — Оператор).
+                  </p>
+                  <p>
+                    <strong>2. Какие данные мы собираем</strong><br />
+                    При оформлении заявки через корзину на сайте Пользователь добровольно предоставляет следующие данные: имя, контактный номер телефона или имя пользователя (ник) в мессенджере Telegram, способ доставки, а также текст индивидуальных пожеланий к заказу.
+                  </p>
+                  <p>
+                    <strong>3. Цели обработки персональных данных</strong><br />
+                    Персональные данные Пользователя обрабатываются исключительно в целях связи с Пользователем для подтверждения заказа, согласования деталей индивидуального макета (при его заказе), организации доставки товаров и направления электронных макетов.
+                  </p>
+                  <p>
+                    <strong>4. Порядок хранения и передачи данных</strong><br />
+                    Оператор обеспечивает сохранность персональных данных и принимает все возможные меры, исключающие доступ к ним неуполномоченных лиц. Персональные данные Пользователя никогда не передаются третьим лицам, за исключением случаев, связанных с исполнением действующего законодательства или передачей отправления в выбранную Пользователем службу доставки (Почта России, СДЭК и др.).
+                  </p>
+                  <p>
+                    <strong>5. Права Пользователя и контакты Оператора</strong><br />
+                    Пользователь может в любой момент уточнить, обновить или отозвать своё согласие на обработку персональных данных, направив Оператору уведомление на электронную почту: <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-700 underline font-medium">{CONTACT_EMAIL}</a>.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    <strong>1. Общие условия</strong><br />
+                    Настоящее Пользовательское соглашение регулирует отношения между администрацией сайта <strong>{SITE_DOMAIN}</strong> (проект «Татарские подарки», статус — плательщик налога на профессиональный доход / самозанятый) и Пользователем сети Интернет при использовании каталога товаров.
+                  </p>
+                  <p>
+                    <strong>2. Оформление заявки на сайте</strong><br />
+                    Информация о товарах (книгах, раскрасках, наборах открыток, планерах и календарях), представленная на сайте, носит ознакомительный характер. Отправка формы в корзине является заявкой на приобретение или изготовление продукции. Окончательная стоимость (для позиций с пометкой «от...»), сроки изготовления индивидуальных заказов и условия доставки согласовываются с Пользователем в мессенджере или по телефону после получения заявки.
+                  </p>
+                  <p>
+                    <strong>3. Интеллектуальная собственность и авторские права</strong><br />
+                    Все представленные на сайте тексты, авторские сказки, дизайн открыток, раскрасок, планеров, иллюстрации и логотип являются объектами авторского права. Копирование, тиражирование, перепродажа или коммерческое использование материалов и электронных макетов без письменного согласия правообладателя запрещены.
+                  </p>
+                  <p>
+                    <strong>4. Контактная информация</strong><br />
+                    По всем вопросам, связанным с работой сайта, заказами и сотрудничеством, Пользователь может обратиться по адресу электронной почты: <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-700 underline font-medium">{CONTACT_EMAIL}</a>.
+                  </p>
+                </>
+              )}
+            </div>
+
+            <div className="p-4 border-t border-stone-200 bg-stone-50 flex justify-end">
+              <button
+                onClick={onClose}
+                className="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-medium px-5 py-2 rounded-xl transition"
+              >
+                Понятно
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
     function App() {
       const [selectedCategory, setSelectedCategory] = useState('all');
       const [selectedVariants, setSelectedVariants] = useState({
@@ -211,6 +299,7 @@
       const [isCartOpen, setIsCartOpen] = useState(false);
       const [previewProduct, setPreviewProduct] = useState(null);
       const [logoError, setLogoError] = useState(false);
+      const [legalModal, setLegalModal] = useState(null);
 
       const [customerName, setCustomerName] = useState('');
       const [customerContact, setCustomerContact] = useState('');
@@ -328,7 +417,7 @@
       };
 
       return (
-        <div className="min-h-screen bg-stone-50 text-stone-800 font-sans">
+        <div className="min-h-screen flex flex-col bg-stone-50 text-stone-800 font-sans">
           {/* Шапка с логотипом */}
           <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200">
             <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
@@ -366,7 +455,7 @@
           </header>
 
           {/* Главный баннер */}
-          <section className="max-w-6xl mx-auto px-4 pt-8 pb-6">
+          <section className="max-w-6xl mx-auto px-4 pt-8 pb-6 w-full">
             <div className="bg-gradient-to-r from-emerald-800 to-teal-700 rounded-3xl p-6 md:p-10 text-white shadow-md">
               <span className="inline-block bg-white/20 text-xs font-medium px-3 py-1 rounded-full mb-3">
                 Авторская полиграфия на татарском языке
@@ -381,7 +470,7 @@
           </section>
 
           {/* Фильтры */}
-          <section className="max-w-6xl mx-auto px-4 pb-6">
+          <section className="max-w-6xl mx-auto px-4 pb-6 w-full">
             <div className="flex gap-2 overflow-x-auto pb-2">
               {CATEGORIES.map(cat => (
                 <button
@@ -400,7 +489,7 @@
           </section>
 
           {/* Сетка товаров */}
-          <main className="max-w-6xl mx-auto px-4 pb-16">
+          <main className="max-w-6xl mx-auto px-4 pb-16 w-full flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map(product => {
                 const { price, prefix } = getProductPricing(product);
@@ -488,6 +577,42 @@
             </div>
           </main>
 
+          {/* Подвал сайта с документами */}
+          <footer className="bg-white border-t border-stone-200 mt-auto">
+            <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-stone-500">
+              <div className="space-y-1">
+                <p className="font-semibold text-stone-800 text-sm">Татарские подарки</p>
+                <p>Плательщик налога на профессиональный доход (самозанятый)</p>
+                <p>
+                  Почта для связи:{' '}
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-700 hover:underline">
+                    {CONTACT_EMAIL}
+                  </a>
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                <button
+                  type="button"
+                  onClick={() => setLegalModal('privacy')}
+                  className="text-left text-stone-600 hover:text-emerald-700 underline underline-offset-4 transition"
+                >
+                  Политика конфиденциальности
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLegalModal('terms')}
+                  className="text-left text-stone-600 hover:text-emerald-700 underline underline-offset-4 transition"
+                >
+                  Пользовательское соглашение
+                </button>
+              </div>
+            </div>
+          </footer>
+
+          {/* Модальное окно юридических документов */}
+          <LegalModal docType={legalModal} onClose={() => setLegalModal(null)} />
+
           {/* Модальное окно увеличения фото */}
           {previewProduct && (
             <div 
@@ -520,7 +645,7 @@
 
           {/* Выдвижная корзина */}
           {isCartOpen && (
-            <div className="fixed inset-0 z-50 flex justify-end bg-black/40">
+            <div className="fixed inset-0 z-40 flex justify-end bg-black/40">
               <div className="bg-white w-full max-w-md h-full flex flex-col justify-between shadow-2xl">
                 <div className="p-5 border-b border-stone-200 flex items-center justify-between">
                   <h3 className="font-bold text-lg">🛍️ Ваш заказ</h3>
@@ -648,10 +773,29 @@
                       {isSubmitting ? 'Отправка...' : 'Отправить заказ'}
                     </button>
 
+                    <p className="text-[11px] text-stone-400 text-center leading-snug">
+                      Нажимая кнопку «Отправить заказ», вы соглашаетесь с{' '}
+                      <button
+                        type="button"
+                        onClick={() => setLegalModal('privacy')}
+                        className="text-emerald-700 underline"
+                      >
+                        Политикой конфиденциальности
+                      </button>{' '}
+                      и{' '}
+                      <button
+                        type="button"
+                        onClick={() => setLegalModal('terms')}
+                        className="text-emerald-700 underline"
+                      >
+                        Пользовательским соглашением
+                      </button>.
+                    </p>
+
                     <button
                       type="button"
                       onClick={handleCopyOrder}
-                      className="w-full bg-white hover:bg-stone-100 text-stone-700 border border-stone-300 font-medium py-2.5 rounded-xl text-xs transition"
+                      className="w-full bg-white hover:bg-stone-100 text-stone-700 border border-stone-300 font-medium py-2 rounded-xl text-xs transition"
                     >
                       {copied ? '✓ Текст заказа скопирован!' : 'Скопировать заказ вручную'}
                     </button>
