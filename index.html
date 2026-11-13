@@ -17,6 +17,11 @@
   <meta property="og:description" content="Авторские детские сказки, наборы открыток, раскраски и планеры на татарском языке. Заказывайте готовые варианты или индивидуальный дизайн." />
   <meta property="og:image" content="https://ukropanisovna1.ru/images/logo.jpg" />
 
+  <!-- Шрифты для стиля «Крафтовая мастерская» -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -32,11 +37,45 @@
   <!-- /Yandex.Metrika counter -->
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+            hand: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background-color: #F3ECE1;
+      background-image: radial-gradient(#DFD3C3 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .washi-tape {
+      background-color: rgba(231, 211, 181, 0.82);
+      border-left: 2px dashed rgba(180, 155, 120, 0.45);
+      border-right: 2px dashed rgba(180, 155, 120, 0.45);
+      box-shadow: 0 1px 3px rgba(41, 37, 36, 0.12);
+      backdrop-filter: blur(2px);
+    }
+    .craft-card {
+      background-color: #FFFDF9;
+      box-shadow: 0 4px 14px -2px rgba(68, 52, 38, 0.08), 0 1px 3px rgba(68, 52, 38, 0.06);
+    }
+    .craft-card:hover {
+      box-shadow: 0 12px 24px -4px rgba(68, 52, 38, 0.14), 0 4px 8px -2px rgba(68, 52, 38, 0.08);
+    }
+  </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
+<body class="text-[#292524] antialiased">
   <div id="root"></div>
 
   <script type="text/babel">
@@ -62,6 +101,7 @@
         title: 'Детская книга на татарском языке «Йокламаган песи»',
         description: 'Добрая сказка на татарском языке для малышей (автор Миннебаева Тансылу) с яркими иллюстрациями о непоседливом котёнке.',
         badge: 'Хит продаж',
+        authorNote: 'Любимая сказка перед сном 🐾',
         hasVariants: false,
         price: 200,
         pricePrefix: '',
@@ -76,6 +116,7 @@
         title: 'Детская книга на татарском языке «Кызыксынучан тычкан»',
         description: 'Увлекательная история про любопытного мышонка на татарском языке (автор Миннебаева Тансылу) с красочными картинками.',
         badge: 'Новинка',
+        authorNote: 'Свежий тираж из типографии!',
         hasVariants: false,
         price: 100,
         pricePrefix: '',
@@ -90,6 +131,7 @@
         title: 'Открытки с цитатами из татарских песен',
         description: 'Набор из 35 открыток без повторов (размер 8×8 см) с душевными строками из любимых татарских песен.',
         badge: 'Набор 35 шт.',
+        authorNote: 'Душевные строчки в каждом конверте',
         hasVariants: false,
         price: 230,
         pricePrefix: '',
@@ -104,6 +146,7 @@
         title: 'Открытки с татарскими пожеланиями',
         description: 'Набор из 33 открыток без повторов (размер 6×9 см) с тёплыми национальными пожеланиями на любой праздник.',
         badge: 'Набор 33 шт.',
+        authorNote: 'Идеально вложить в подарок ✨',
         hasVariants: false,
         price: 220,
         pricePrefix: '',
@@ -118,6 +161,7 @@
         title: 'Открытки на татарском для мамы',
         description: 'Трогательный набор из 18 открыток (9 уникальных нежных дизайнов по 2 экземпляра) для самой любимой мамы.',
         badge: 'Набор 18 шт.',
+        authorNote: 'Самые нежные слова для әни ❤️',
         hasVariants: false,
         price: 150,
         pricePrefix: '',
@@ -132,6 +176,7 @@
         title: 'Раскраска детская на татарском «Буяу татарча»',
         description: 'Развивающая раскраска «Табигать дөньясы» (3+) с подписями животных и природы на татарском языке.',
         badge: 'Для детей 3+',
+        authorNote: 'Учим слова играя с карандашами',
         hasVariants: true,
         variants: [
           { id: 'ready', label: 'Готовый вариант', price: 150, prefix: '' },
@@ -148,6 +193,7 @@
         title: 'Календарь в виде вазы с цветами',
         description: 'Оригинальный настольный календарь на 2027 год с названиями месяцев на татарском языке, где каждый месяц — новый цветок в вазе.',
         badge: 'На 2027 год',
+        authorNote: 'Цветущий букет круглый год 🌷',
         hasVariants: true,
         variants: [
           { id: 'ready', label: 'Готовый вариант', price: 200, prefix: '' },
@@ -164,6 +210,7 @@
         title: 'Индивидуальные открытки',
         description: 'Разработка открытки с вашим текстом, именем или фото. Бумажный вариант зависит от тиража.',
         badge: 'На заказ',
+        authorNote: 'Сделаем по вашей задумке ✍️',
         hasVariants: true,
         variants: [
           { id: 'digital', label: 'Электронный макет', price: 500, prefix: '' },
@@ -173,7 +220,7 @@
         customPlaceholder: 'Напишите пожелание или идею для открытки...',
         image: '',
         fallbackEmoji: '✨',
-        fallbackBg: 'from-purple-100 to-fuchsia-100',
+        fallbackBg: 'from-amber-100 to-orange-100',
         fallbackLabel: 'Индивидуальный дизайн'
       },
       {
@@ -182,6 +229,7 @@
         title: 'Планер на неделю на татарском',
         description: 'Удобный недатированный планер для организации дел и привычек на родном языке.',
         badge: 'А4 / А5',
+        authorNote: 'Для уютного планирования дел',
         hasVariants: true,
         variants: [
           { id: 'ready', label: 'Готовый вариант', price: 250, prefix: '' },
@@ -189,7 +237,7 @@
         ],
         image: 'images/planner.jpg',
         fallbackEmoji: '📅',
-        fallbackBg: 'from-teal-100 to-cyan-100',
+        fallbackBg: 'from-teal-100 to-amber-100',
         fallbackLabel: 'Атналык планер'
       }
     ];
@@ -206,31 +254,42 @@
 
       if (product.image && !imgError) {
         return (
-          <div 
-            onClick={() => onPreview && onPreview(product)}
-            className="h-64 w-full bg-stone-100 overflow-hidden cursor-zoom-in group relative"
-          >
-            <img
-              src={product.image}
-              alt={product.title}
-              onError={() => setImgError(true)}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-300"
-            />
-            <span className="absolute bottom-2.5 right-2.5 bg-black/50 text-white text-[11px] px-2 py-0.5 rounded-md opacity-0 group-hover:opacity-100 transition">
-              🔍 Увеличить
-            </span>
+          <div className="pt-4 px-4">
+            <div 
+              onClick={() => onPreview && onPreview(product)}
+              className="relative h-60 w-full bg-[#EFE7DB] p-2 rounded-xl border border-[#E2D5C3] shadow-inner cursor-zoom-in group"
+            >
+              {/* Полоска малярного скотча сверху */}
+              <div className="washi-tape w-20 h-5 absolute -top-2.5 left-1/2 -translate-x-1/2 -rotate-2 z-10 pointer-events-none"></div>
+
+              <div className="w-full h-full overflow-hidden rounded-lg bg-white">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  onError={() => setImgError(true)}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-300"
+                />
+              </div>
+
+              <span className="absolute bottom-3.5 right-3.5 bg-[#292524]/80 text-[#FFFDF9] text-[11px] font-semibold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition">
+                🔍 Рассмотреть
+              </span>
+            </div>
           </div>
         );
       }
 
       return (
-        <div className={`h-64 w-full bg-gradient-to-br ${product.fallbackBg} flex flex-col items-center justify-center p-4`}>
-          <div className="bg-white/85 backdrop-blur-sm w-16 h-16 rounded-2xl shadow-sm mb-2.5 flex items-center justify-center text-3xl">
-            {product.fallbackEmoji}
+        <div className="pt-4 px-4">
+          <div className={`relative h-60 w-full bg-gradient-to-br ${product.fallbackBg} rounded-xl border border-[#E2D5C3] flex flex-col items-center justify-center p-4`}>
+            <div className="washi-tape w-20 h-5 absolute -top-2.5 left-1/2 -translate-x-1/2 rotate-2 z-10 pointer-events-none"></div>
+            <div className="bg-[#FFFDF9]/90 w-16 h-16 rounded-2xl shadow-sm mb-2.5 flex items-center justify-center text-3xl border border-[#E5D9C8]">
+              {product.fallbackEmoji}
+            </div>
+            <span className="text-xs font-bold text-[#57534E] bg-[#FFFDF9]/85 px-3 py-1 rounded-full border border-[#E5D9C8]">
+              {product.fallbackLabel}
+            </span>
           </div>
-          <span className="text-xs font-medium text-stone-700 bg-white/75 px-3 py-1 rounded-full">
-            {product.fallbackLabel}
-          </span>
         </div>
       );
     };
@@ -241,27 +300,27 @@
       return (
         <div 
           onClick={onClose}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#292524]/60 backdrop-blur-xs flex items-center justify-center p-4"
         >
           <div 
             onClick={e => e.stopPropagation()}
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden"
+            className="bg-[#FFFDF9] border-2 border-[#D6C7B2] rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden"
           >
-            <div className="p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
-              <h3 className="font-bold text-base md:text-lg text-stone-900">
+            <div className="p-5 border-b border-[#E5D9C8] flex items-center justify-between bg-[#F6EFE4]">
+              <h3 className="font-extrabold text-base md:text-lg text-[#292524]">
                 {docType === 'privacy' 
                   ? 'Политика в отношении обработки персональных данных' 
                   : 'Пользовательское соглашение'}
               </h3>
               <button
                 onClick={onClose}
-                className="p-1.5 text-stone-400 hover:text-stone-800 rounded-lg font-bold text-lg"
+                className="p-1.5 text-[#78716C] hover:text-[#292524] rounded-lg font-bold text-lg"
               >
                 ✕
               </button>
             </div>
 
-            <div className="p-5 md:p-6 overflow-y-auto text-xs md:text-sm text-stone-600 space-y-4 leading-relaxed">
+            <div className="p-5 md:p-6 overflow-y-auto text-xs md:text-sm text-[#57534E] space-y-4 leading-relaxed">
               {docType === 'privacy' ? (
                 <>
                   <p>
@@ -282,7 +341,7 @@
                   </p>
                   <p>
                     <strong>5. Права Пользователя и контакты Оператора</strong><br />
-                    Пользователь может в любой момент уточнить, обновить или отозвать своё согласие на обработку персональных данных, направив Оператору уведомление на электронную почту: <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-700 underline font-medium">{CONTACT_EMAIL}</a>.
+                    Пользователь может в любой момент уточнить, обновить или отозвать своё согласие на обработку персональных данных, направив Оператору уведомление на электронную почту: <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#C2410C] underline font-bold">{CONTACT_EMAIL}</a>.
                   </p>
                 </>
               ) : (
@@ -301,16 +360,16 @@
                   </p>
                   <p>
                     <strong>4. Контактная информация</strong><br />
-                    По всем вопросам, связанным с работой сайта, заказами и сотрудничеством, Пользователь может обратиться по адресу электронной почты: <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-700 underline font-medium">{CONTACT_EMAIL}</a>.
+                    По всем вопросам, связанным с работой сайта, заказами и сотрудничеством, Пользователь может обратиться по адресу электронной почты: <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#C2410C] underline font-bold">{CONTACT_EMAIL}</a>.
                   </p>
                 </>
               )}
             </div>
 
-            <div className="p-4 border-t border-stone-200 bg-stone-50 flex justify-end">
+            <div className="p-4 border-t border-[#E5D9C8] bg-[#F6EFE4] flex justify-end">
               <button
                 onClick={onClose}
-                className="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-medium px-5 py-2 rounded-xl transition"
+                className="bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-bold px-5 py-2 rounded-xl transition"
               >
                 Понятно
               </button>
@@ -455,26 +514,31 @@
       };
 
       return (
-        <div className="min-h-screen flex flex-col bg-stone-50 text-stone-800 font-sans">
-          {/* Шапка с логотипом */}
-          <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        <div className="min-h-screen flex flex-col text-[#292524]">
+          {/* Шапка мастерской */}
+          <header className="sticky top-0 z-30 bg-[#FFFDF9]/95 backdrop-blur-md border-b-2 border-dashed border-[#D6C7B2]">
             <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3.5">
                 {!logoError ? (
                   <img
                     src="images/logo.jpg"
                     alt="Логотип"
                     onError={() => setLogoError(true)}
-                    className="w-11 h-11 rounded-xl object-contain bg-white border border-stone-200 p-1 shadow-xs"
+                    className="w-12 h-12 rounded-2xl object-contain bg-white border-2 border-[#E2D5C3] p-1 shadow-xs -rotate-2"
                   />
                 ) : (
-                  <div className="w-11 h-11 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#C2410C] text-white flex items-center justify-center font-extrabold text-lg shadow-sm -rotate-2">
                     UR
                   </div>
                 )}
                 <div>
-                  <h1 className="font-bold text-lg leading-tight text-stone-900">Татарские подарки</h1>
-                  <p className="text-xs text-stone-500">Книги, открытки и планеры с душой</p>
+                  <div className="flex items-center gap-2">
+                    <h1 className="font-extrabold text-lg md:text-xl leading-tight text-[#292524]">Татарские подарки</h1>
+                    <span className="hidden sm:inline-block font-hand text-lg text-[#C2410C] -rotate-2">
+                      • ручная работа и дизайн
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#78716C] font-semibold">Книги, открытки и планеры с душой</p>
                 </div>
               </div>
 
@@ -483,11 +547,11 @@
                   setIsCartOpen(true);
                   trackGoal('open_cart');
                 }}
-                className="relative flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition shadow-sm"
+                className="relative flex items-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white px-4 py-2.5 rounded-2xl font-bold text-sm transition shadow-sm border-b-2 border-[#7C2D12]"
               >
-                <span>🛍️ Корзина</span>
+                <span>🧺 Корзина</span>
                 {totalItems > 0 && (
-                  <span className="bg-amber-400 text-stone-900 font-bold text-xs px-2 py-0.5 rounded-full">
+                  <span className="bg-[#FEF3C7] text-[#9A3412] font-extrabold text-xs px-2 py-0.5 rounded-full">
                     {totalItems}
                   </span>
                 )}
@@ -495,72 +559,109 @@
             </div>
           </header>
 
-          {/* Главный баннер */}
-          <section className="max-w-6xl mx-auto px-4 pt-8 pb-6 w-full">
-            <div className="bg-gradient-to-r from-emerald-800 to-teal-700 rounded-3xl p-6 md:p-10 text-white shadow-md">
-              <span className="inline-block bg-white/20 text-xs font-medium px-3 py-1 rounded-full mb-3">
-                Авторская полиграфия на татарском языке
-              </span>
-              <h2 className="text-2xl md:text-4xl font-bold mb-3 max-w-2xl">
-                Тёплые подарки и книги на родном языке для детей и близких
-              </h2>
-              <p className="text-emerald-100 text-sm md:text-base max-w-xl">
-                Выбирайте готовые наборы открыток, сказки и планеры или заказывайте индивидуальный дизайн с вашими пожеланиями.
-              </p>
+          {/* Крафтовый баннер-открытка */}
+          <section className="max-w-6xl mx-auto px-4 pt-9 pb-5 w-full">
+            <div className="relative bg-[#E7D8C3] border-2 border-[#D4C2A8] rounded-3xl p-6 md:p-10 shadow-md overflow-visible">
+              {/* Декоративные полоски скотча по углам */}
+              <div className="washi-tape w-24 h-6 absolute -top-3 left-8 -rotate-6 hidden sm:block"></div>
+              <div className="washi-tape w-24 h-6 absolute -top-3 right-10 rotate-6 hidden sm:block"></div>
+
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="max-w-2xl">
+                  <div className="inline-flex items-center gap-2 bg-[#FFFDF9] border border-[#D4C2A8] text-[#9A3412] text-xs font-extrabold px-3.5 py-1.5 rounded-full mb-3.5 shadow-2xs">
+                    <span>✂️</span>
+                    <span>Авторская полиграфия на татарском языке</span>
+                  </div>
+
+                  <h2 className="text-2xl md:text-4xl font-extrabold text-[#292524] mb-3 leading-tight">
+                    Тёплые подарки и книги на родном языке,{' '}
+                    <span className="font-hand text-3xl md:text-5xl text-[#C2410C] inline-block -rotate-1">
+                      сделанные с душой
+                    </span>
+                  </h2>
+
+                  <p className="text-[#57534E] text-sm md:text-base max-w-xl leading-relaxed font-medium">
+                    Выбирайте готовые наборы открыток, добрые детские сказки и планеры или заказывайте индивидуальный дизайн с вашими тёплыми пожеланиями.
+                  </p>
+                </div>
+
+                {/* Стикер-заметка справа */}
+                <div className="bg-[#FFFBEB] border border-[#FDE68A] p-4 rounded-2xl shadow-sm rotate-1 md:max-w-[230px] shrink-0">
+                  <p className="font-hand text-2xl text-[#B45309] leading-none mb-1">Заметка автора:</p>
+                  <p className="text-xs text-[#57534E] leading-relaxed font-semibold">
+                    Каждую открытку и книгу мы бережно упаковываем в крафт и отправляем по всей России 📦
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Фильтры */}
+          {/* Фильтры и рисованная стрелочка */}
           <section className="max-w-6xl mx-auto px-4 pb-6 w-full">
-            <div className="flex gap-2 overflow-x-auto pb-2">
-              {CATEGORIES.map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition ${
-                    selectedCategory === cat.id
-                      ? 'bg-stone-900 text-white shadow-sm'
-                      : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {CATEGORIES.map(cat => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={`px-4 py-2 rounded-2xl text-sm font-bold whitespace-nowrap transition ${
+                      selectedCategory === cat.id
+                        ? 'bg-[#292524] text-[#FFFDF9] shadow-sm'
+                        : 'bg-[#FFFDF9] text-[#57534E] hover:bg-[#EFE7DB] border border-[#D6C7B2]'
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Рукописная подсказка со стрелкой */}
+              <div className="hidden md:flex items-center gap-1.5 text-[#C2410C] font-hand text-2xl -rotate-1 select-none">
+                <span>Листайте каталог ниже</span>
+                <svg className="w-6 h-6 text-[#C2410C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
             </div>
           </section>
 
           {/* Сетка товаров */}
           <main className="max-w-6xl mx-auto px-4 pb-16 w-full flex-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {filteredProducts.map(product => {
                 const { price, prefix } = getProductPricing(product);
                 return (
                   <div
                     key={product.id}
-                    className="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition"
+                    className="craft-card rounded-3xl border border-[#DFD3C3] flex flex-col justify-between transition duration-200 hover:-translate-y-1 relative"
                   >
                     <div>
                       <div className="relative">
                         <ProductMedia product={product} onPreview={setPreviewProduct} />
                         {product.badge && (
-                          <span className="absolute top-3 left-3 bg-white/95 text-stone-800 text-xs font-semibold px-2.5 py-1 rounded-lg shadow-sm pointer-events-none">
+                          <span className="absolute top-6 left-6 bg-[#FEF3C7] border border-[#F59E0B]/40 text-[#92400E] text-xs font-extrabold px-3 py-1 rounded-xl shadow-xs pointer-events-none -rotate-2">
                             {product.badge}
                           </span>
                         )}
                       </div>
 
-                      <div className="p-5">
-                        <h3 className="font-bold text-base text-stone-900 mb-2 leading-snug">
+                      <div className="p-5 pt-4">
+                        {product.authorNote && (
+                          <p className="font-hand text-xl text-[#C2410C] mb-1 leading-none">
+                            ✎ {product.authorNote}
+                          </p>
+                        )}
+                        <h3 className="font-extrabold text-base text-[#292524] mb-2 leading-snug">
                           {product.title}
                         </h3>
-                        <p className="text-sm text-stone-500 mb-4 leading-relaxed">
+                        <p className="text-sm text-[#57534E] mb-4 leading-relaxed">
                           {product.description}
                         </p>
 
                         {product.hasVariants && (
                           <div className="mb-4">
-                            <p className="text-xs font-medium text-stone-500 mb-1.5">Выберите вариант:</p>
-                            <div className="grid grid-cols-2 gap-1.5 bg-stone-100 p-1 rounded-xl">
+                            <p className="text-xs font-bold text-[#78716C] mb-1.5">Выберите вариант:</p>
+                            <div className="grid grid-cols-2 gap-1.5 bg-[#F3ECE1] p-1 rounded-xl border border-[#E2D5C3]">
                               {product.variants.map(variant => {
                                 const isSelected = (selectedVariants[product.id] || product.variants[0].id) === variant.id;
                                 return (
@@ -568,10 +669,10 @@
                                     key={variant.id}
                                     type="button"
                                     onClick={() => setSelectedVariants(prev => ({ ...prev, [product.id]: variant.id }))}
-                                    className={`text-xs py-1.5 px-2 rounded-lg font-medium transition text-center ${
+                                    className={`text-xs py-1.5 px-2 rounded-lg font-bold transition text-center ${
                                       isSelected
-                                        ? 'bg-white text-stone-900 shadow-sm'
-                                        : 'text-stone-600 hover:text-stone-900'
+                                        ? 'bg-[#FFFDF9] text-[#292524] shadow-xs border border-[#D6C7B2]'
+                                        : 'text-[#78716C] hover:text-[#292524]'
                                     }`}
                                   >
                                     {variant.label}
@@ -589,17 +690,17 @@
                               value={customNotes[product.id] || ''}
                               onChange={(e) => setCustomNotes(prev => ({ ...prev, [product.id]: e.target.value }))}
                               placeholder={product.customPlaceholder}
-                              className="w-full text-xs border border-stone-200 rounded-xl px-3 py-2 focus:outline-none focus:border-emerald-600"
+                              className="w-full text-xs bg-[#FAF6F0] border border-[#D6C7B2] rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#C2410C]"
                             />
                           </div>
                         )}
                       </div>
                     </div>
 
-                    <div className="px-5 pb-5 pt-2 flex items-center justify-between border-t border-stone-100">
+                    <div className="px-5 pb-5 pt-3 flex items-center justify-between border-t border-dashed border-[#E2D5C3]">
                       <div>
-                        <span className="text-xs text-stone-400 block">Стоимость</span>
-                        <span className="text-lg font-bold text-stone-900">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#78716C] block">Стоимость</span>
+                        <span className="text-xl font-extrabold text-[#292524]">
                           {prefix}{price} ₽
                         </span>
                       </div>
@@ -607,7 +708,7 @@
                       <button
                         type="button"
                         onClick={() => addToCart(product)}
-                        className="flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition"
+                        className="flex items-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition shadow-xs border-b-2 border-[#7C2D12]"
                       >
                         <span>+ В корзину</span>
                       </button>
@@ -619,14 +720,14 @@
           </main>
 
           {/* Подвал сайта с документами */}
-          <footer className="bg-white border-t border-stone-200 mt-auto">
-            <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-stone-500">
+          <footer className="bg-[#FFFDF9] border-t-2 border-dashed border-[#D6C7B2] mt-auto">
+            <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#78716C]">
               <div className="space-y-1">
-                <p className="font-semibold text-stone-800 text-sm">Татарские подарки</p>
+                <p className="font-extrabold text-[#292524] text-sm">Татарские подарки</p>
                 <p>Плательщик налога на профессиональный доход (самозанятый)</p>
                 <p>
                   Почта для связи:{' '}
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-700 hover:underline">
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#C2410C] font-bold hover:underline">
                     {CONTACT_EMAIL}
                   </a>
                 </p>
@@ -636,14 +737,14 @@
                 <button
                   type="button"
                   onClick={() => setLegalModal('privacy')}
-                  className="text-left text-stone-600 hover:text-emerald-700 underline underline-offset-4 transition"
+                  className="text-left text-[#57534E] hover:text-[#C2410C] font-semibold underline underline-offset-4 transition"
                 >
                   Политика конфиденциальности
                 </button>
                 <button
                   type="button"
                   onClick={() => setLegalModal('terms')}
-                  className="text-left text-stone-600 hover:text-emerald-700 underline underline-offset-4 transition"
+                  className="text-left text-[#57534E] hover:text-[#C2410C] font-semibold underline underline-offset-4 transition"
                 >
                   Пользовательское соглашение
                 </button>
@@ -658,26 +759,26 @@
           {previewProduct && (
             <div 
               onClick={() => setPreviewProduct(null)}
-              className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 bg-[#292524]/80 flex items-center justify-center p-4"
             >
               <div 
                 onClick={e => e.stopPropagation()}
-                className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl"
+                className="bg-[#FFFDF9] border-2 border-[#D6C7B2] rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl"
               >
-                <div className="p-4 border-b border-stone-200 flex items-center justify-between">
-                  <h4 className="font-bold text-sm text-stone-900 pr-4">{previewProduct.title}</h4>
+                <div className="p-4 border-b border-[#E5D9C8] bg-[#F6EFE4] flex items-center justify-between">
+                  <h4 className="font-extrabold text-sm text-[#292524] pr-4">{previewProduct.title}</h4>
                   <button
                     onClick={() => setPreviewProduct(null)}
-                    className="text-stone-500 hover:text-stone-900 font-bold px-2 py-1"
+                    className="text-[#78716C] hover:text-[#292524] font-bold px-2 py-1"
                   >
                     ✕
                   </button>
                 </div>
-                <div className="bg-stone-100 flex items-center justify-center max-h-[75vh] overflow-hidden">
+                <div className="bg-[#F3ECE1] flex items-center justify-center max-h-[75vh] overflow-hidden p-3">
                   <img 
                     src={previewProduct.image} 
                     alt={previewProduct.title} 
-                    className="w-full h-auto max-h-[75vh] object-contain"
+                    className="w-full h-auto max-h-[70vh] object-contain rounded-xl shadow-sm"
                   />
                 </div>
               </div>
@@ -686,13 +787,13 @@
 
           {/* Выдвижная корзина */}
           {isCartOpen && (
-            <div className="fixed inset-0 z-40 flex justify-end bg-black/40">
-              <div className="bg-white w-full max-w-md h-full flex flex-col justify-between shadow-2xl">
-                <div className="p-5 border-b border-stone-200 flex items-center justify-between">
-                  <h3 className="font-bold text-lg">🛍️ Ваш заказ</h3>
+            <div className="fixed inset-0 z-40 flex justify-end bg-[#292524]/45 backdrop-blur-2xs">
+              <div className="bg-[#FFFDF9] border-l-2 border-[#D6C7B2] w-full max-w-md h-full flex flex-col justify-between shadow-2xl">
+                <div className="p-5 border-b-2 border-dashed border-[#E2D5C3] bg-[#F6EFE4] flex items-center justify-between">
+                  <h3 className="font-extrabold text-lg text-[#292524]">🧺 Ваш заказ</h3>
                   <button
                     onClick={() => setIsCartOpen(false)}
-                    className="p-2 text-stone-400 hover:text-stone-700 rounded-lg text-lg font-bold"
+                    className="p-2 text-[#78716C] hover:text-[#292524] rounded-lg text-lg font-bold"
                   >
                     ✕
                   </button>
@@ -700,47 +801,48 @@
 
                 <div className="flex-1 overflow-y-auto p-5 space-y-5">
                   {cart.length === 0 ? (
-                    <div className="text-center py-12 text-stone-400">
-                      <p className="text-3xl mb-2">🛒</p>
-                      <p className="text-sm">Корзина пока пуста</p>
+                    <div className="text-center py-12 text-[#78716C]">
+                      <p className="text-4xl mb-2">🧺</p>
+                      <p className="text-sm font-bold">Корзина пока пуста</p>
+                      <p className="font-hand text-2xl text-[#C2410C] mt-1">Выберите что-нибудь тёплое из каталога!</p>
                     </div>
                   ) : (
                     <>
                       <div className="space-y-3">
                         {cart.map(item => (
-                          <div key={item.cartKey} className="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
+                          <div key={item.cartKey} className="bg-[#FAF6F0] p-3.5 rounded-2xl border border-[#E2D5C3]">
                             <div className="flex justify-between gap-2 mb-1">
-                              <h4 className="font-semibold text-sm text-stone-900">{item.title}</h4>
+                              <h4 className="font-bold text-sm text-[#292524]">{item.title}</h4>
                               <button
                                 onClick={() => updateQty(item.cartKey, -item.qty)}
-                                className="text-stone-400 hover:text-rose-500 text-xs"
+                                className="text-[#78716C] hover:text-[#C2410C] text-xs font-semibold"
                               >
                                 Удалить
                               </button>
                             </div>
                             {item.variantLabel && (
-                              <p className="text-xs text-emerald-700 font-medium mb-1">{item.variantLabel}</p>
+                              <p className="text-xs text-[#C2410C] font-bold mb-1">{item.variantLabel}</p>
                             )}
                             {item.note && (
-                              <p className="text-xs text-stone-500 italic mb-2">«{item.note}»</p>
+                              <p className="text-xs text-[#57534E] italic mb-2">«{item.note}»</p>
                             )}
                             <div className="flex items-center justify-between mt-2">
-                              <div className="flex items-center gap-2 bg-white border border-stone-200 rounded-lg px-2 py-1">
+                              <div className="flex items-center gap-2 bg-[#FFFDF9] border border-[#D6C7B2] rounded-xl px-2 py-1">
                                 <button
                                   onClick={() => updateQty(item.cartKey, -1)}
-                                  className="px-1.5 hover:bg-stone-100 rounded font-bold"
+                                  className="px-1.5 hover:bg-[#F3ECE1] rounded font-bold"
                                 >
                                   −
                                 </button>
-                                <span className="text-xs font-bold px-1.5">{item.qty}</span>
+                                <span className="text-xs font-extrabold px-1.5">{item.qty}</span>
                                 <button
                                   onClick={() => updateQty(item.cartKey, 1)}
-                                  className="px-1.5 hover:bg-stone-100 rounded font-bold"
+                                  className="px-1.5 hover:bg-[#F3ECE1] rounded font-bold"
                                 >
                                   +
                                 </button>
                               </div>
-                              <span className="font-bold text-sm">
+                              <span className="font-extrabold text-sm text-[#292524]">
                                 {item.prefix}{item.price * item.qty} ₽
                               </span>
                             </div>
@@ -748,15 +850,15 @@
                         ))}
                       </div>
 
-                      <form id="order-form" onSubmit={handleSubmitOrder} className="space-y-3 pt-3 border-t border-stone-200">
-                        <h4 className="font-bold text-sm text-stone-900">Данные для отправки</h4>
+                      <form id="order-form" onSubmit={handleSubmitOrder} className="space-y-3 pt-3 border-t border-dashed border-[#E2D5C3]">
+                        <h4 className="font-extrabold text-sm text-[#292524]">Данные для отправки</h4>
                         <input
                           type="text"
                           required
                           placeholder="Ваше имя *"
                           value={customerName}
                           onChange={e => setCustomerName(e.target.value)}
-                          className="w-full text-sm border border-stone-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-emerald-600"
+                          className="w-full text-sm bg-[#FAF6F0] border border-[#D6C7B2] rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-[#C2410C]"
                         />
                         <input
                           type="text"
@@ -764,12 +866,12 @@
                           placeholder="Телефон или ник в Telegram *"
                           value={customerContact}
                           onChange={e => setCustomerContact(e.target.value)}
-                          className="w-full text-sm border border-stone-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-emerald-600"
+                          className="w-full text-sm bg-[#FAF6F0] border border-[#D6C7B2] rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-[#C2410C]"
                         />
                         <select
                           value={deliveryMethod}
                           onChange={e => setDeliveryMethod(e.target.value)}
-                          className="w-full text-sm border border-stone-300 rounded-xl px-3.5 py-2.5 bg-white focus:outline-none focus:border-emerald-600"
+                          className="w-full text-sm bg-[#FAF6F0] border border-[#D6C7B2] rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-[#C2410C]"
                         >
                           <option value="СДЭК / Почта России">Доставка: СДЭК / Почта России</option>
                           <option value="Самовывоз">Самовывоз</option>
@@ -780,16 +882,16 @@
                           placeholder="Пожелания к заказу (необязательно)"
                           value={orderComment}
                           onChange={e => setOrderComment(e.target.value)}
-                          className="w-full text-sm border border-stone-300 rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-emerald-600"
+                          className="w-full text-sm bg-[#FAF6F0] border border-[#D6C7B2] rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-[#C2410C]"
                         />
                       </form>
                     </>
                   )}
 
                   {orderStatus && (
-                    <div className={`p-3.5 rounded-xl text-xs ${
-                      orderStatus.type === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
-                      'bg-rose-50 text-rose-800 border border-rose-200'
+                    <div className={`p-3.5 rounded-xl text-xs font-semibold ${
+                      orderStatus.type === 'success' ? 'bg-emerald-50 text-emerald-900 border border-emerald-200' :
+                      'bg-rose-50 text-rose-900 border border-rose-200'
                     }`}>
                       {orderStatus.message}
                     </div>
@@ -797,10 +899,10 @@
                 </div>
 
                 {cart.length > 0 && (
-                  <div className="p-5 border-t border-stone-200 bg-stone-50 space-y-3">
+                  <div className="p-5 border-t-2 border-dashed border-[#E2D5C3] bg-[#F6EFE4] space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-stone-600">Итого к оплате:</span>
-                      <span className="text-xl font-bold text-stone-900">
+                      <span className="text-sm font-bold text-[#57534E]">Итого к оплате:</span>
+                      <span className="text-xl font-extrabold text-[#292524]">
                         {hasFromPrice ? 'от ' : ''}{totalPrice} ₽
                       </span>
                     </div>
@@ -809,17 +911,17 @@
                       type="submit"
                       form="order-form"
                       disabled={isSubmitting}
-                      className="w-full bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition shadow-sm"
+                      className="w-full bg-[#C2410C] hover:bg-[#9A3412] disabled:opacity-50 text-white font-extrabold py-3 rounded-xl transition shadow-sm border-b-2 border-[#7C2D12]"
                     >
                       {isSubmitting ? 'Отправка...' : 'Отправить заказ'}
                     </button>
 
-                    <p className="text-[11px] text-stone-400 text-center leading-snug">
+                    <p className="text-[11px] text-[#78716C] text-center leading-snug">
                       Нажимая кнопку «Отправить заказ», вы соглашаетесь с{' '}
                       <button
                         type="button"
                         onClick={() => setLegalModal('privacy')}
-                        className="text-emerald-700 underline"
+                        className="text-[#C2410C] font-bold underline"
                       >
                         Политикой конфиденциальности
                       </button>{' '}
@@ -827,7 +929,7 @@
                       <button
                         type="button"
                         onClick={() => setLegalModal('terms')}
-                        className="text-emerald-700 underline"
+                        className="text-[#C2410C] font-bold underline"
                       >
                         Пользовательским соглашением
                       </button>.
@@ -836,7 +938,7 @@
                     <button
                       type="button"
                       onClick={handleCopyOrder}
-                      className="w-full bg-white hover:bg-stone-100 text-stone-700 border border-stone-300 font-medium py-2 rounded-xl text-xs transition"
+                      className="w-full bg-[#FFFDF9] hover:bg-[#EFE7DB] text-[#57534E] border border-[#D6C7B2] font-bold py-2 rounded-xl text-xs transition"
                     >
                       {copied ? '✓ Текст заказа скопирован!' : 'Скопировать заказ вручную'}
                     </button>
